@@ -77,7 +77,10 @@ export const MessagesReducer = (
 ): MessagesStateType => {
   switch (action.type) {
     case GET_MESSAGES:
-      return { ...state, 1: [action.payload] };
+      let { key, ...payload } = action.payload;
+
+      state[key] = [...state[action.payload.key], payload];
+      return { ...state };
 
     default:
       return state;

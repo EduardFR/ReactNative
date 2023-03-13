@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     borderTopEndRadius: 5,
     borderTopStartRadius: 5,
     backgroundColor: COLORS.purple,
-    color: COLORS.white,
   },
   getMessage: {
     maxWidth: "80%",
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
     borderBottomStartRadius: 5,
     borderTopEndRadius: 5,
     borderTopStartRadius: 5,
-    backgroundColor: COLORS.lightGray,
+    backgroundColor: COLORS.gray,
   },
   text: {
     fontSize: 20,

@@ -12,9 +12,9 @@ export default function ChatsListPage() {
 
 const styles = StyleSheet.create({
   container: {
-    borderTopColor: COLORS.lightGray,
+    borderTopColor: COLORS.black,
     borderTopWidth: 1,
-    borderBottomColor: COLORS.lightGray,
+    borderBottomColor: COLORS.black,
     borderBottomWidth: 1,
   },
 });

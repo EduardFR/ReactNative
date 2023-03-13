@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
     color: COLORS.black,
   },
   lastMessage: {
-    color: COLORS.lightGray,
+    color: COLORS.gray,
   },
 });

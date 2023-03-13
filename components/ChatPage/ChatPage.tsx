@@ -14,9 +14,9 @@ export default function ChatPage() {
 const styles = StyleSheet.create({
   container: {
     height: "100%",
-    borderTopColor: COLORS.lightGray,
+    borderTopColor: COLORS.black,
     borderTopWidth: 1,
-    borderBottomColor: COLORS.lightGray,
+    borderBottomColor: COLORS.black,
     borderBottomWidth: 1,
   },
 });
