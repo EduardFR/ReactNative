@@ -1,12 +1,12 @@
-import { StyleSheet, View } from "react-native";
-import ChatsListPage from "./components/ChatsListPage/ChatsListPage";
+import { SafeAreaView, StyleSheet, View } from "react-native";
+import ChatsListStack from "./navigate";
 import COLORS from "./constants/colors";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <ChatsListPage />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ChatsListStack />
+    </SafeAreaView>
   );
 }
 

@@ -1,18 +1,29 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import COLORS from "../../constants/colors";
 
-export default function ChatPreview() {
+interface Props {
+  user: User;
+  lastMessage: Message;
+  onPress: any;
+}
+
+export default function ChatPreview({ user, lastMessage, onPress }: Props) {
   return (
-    <View style={styles.chatPreview}>
-      <Image
-        style={styles.avatar}
-        source={require("../../assets/adaptive-icon.png")}
-      />
-      <View style={styles.textPreview}>
-        <Text style={styles.name}>Имя фамилия пользователя</Text>
-        <Text style={styles.lastMessage}>Последнее сообщение</Text>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.chatPreview}>
+        <Image style={styles.avatar} source={{ uri: user.avatar }} />
+        <View style={styles.textPreview}>
+          <Text style={styles.name}>{user.name}</Text>
+          <Text style={styles.lastMessage}>{lastMessage.text}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -26,6 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   avatar: {
+    borderRadius: 15,
     width: 50,
     height: 50,
   },
