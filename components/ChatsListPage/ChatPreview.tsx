@@ -15,7 +15,11 @@ interface Props {
 
 export default function ChatPreview({ user, lastMessage, onPress }: Props) {
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        onPress(user.id);
+      }}
+    >
       <View style={styles.chatPreview}>
         <Image style={styles.avatar} source={{ uri: user.avatar }} />
         <View style={styles.textPreview}>

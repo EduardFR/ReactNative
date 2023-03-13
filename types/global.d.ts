@@ -2,6 +2,7 @@ export {};
 
 declare global {
   interface User {
+    id: number;
     name: string;
     avatar: string;
   }

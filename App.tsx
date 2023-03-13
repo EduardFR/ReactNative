@@ -1,12 +1,16 @@
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
+import { Provider } from "react-redux";
 import ChatsListStack from "./navigate";
 import COLORS from "./constants/colors";
+import { store } from "./store";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ChatsListStack />
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={styles.container}>
+        <ChatsListStack />
+      </SafeAreaView>
+    </Provider>
   );
 }
 

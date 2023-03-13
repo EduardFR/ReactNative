@@ -29,7 +29,18 @@ export default function Navigate() {
         <Stack.Screen
           name="chat"
           component={ChatPage}
-          options={{ title: "Chat" }}
+          options={{
+            title: "Chat",
+            headerStyle: {
+              backgroundColor: COLORS.white,
+            },
+            headerTintColor: COLORS.purple,
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 20,
+              alignSelf: "center",
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

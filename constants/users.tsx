@@ -1,6 +1,7 @@
 export const users = [
   {
     user: {
+      id: 1,
       name: "Frost Eduard1",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -9,6 +10,7 @@ export const users = [
   },
   {
     user: {
+      id: 2,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -17,6 +19,7 @@ export const users = [
   },
   {
     user: {
+      id: 3,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -25,6 +28,7 @@ export const users = [
   },
   {
     user: {
+      id: 4,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -33,6 +37,7 @@ export const users = [
   },
   {
     user: {
+      id: 5,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -41,6 +46,7 @@ export const users = [
   },
   {
     user: {
+      id: 6,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -49,6 +55,7 @@ export const users = [
   },
   {
     user: {
+      id: 7,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -57,6 +64,7 @@ export const users = [
   },
   {
     user: {
+      id: 8,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -65,6 +73,7 @@ export const users = [
   },
   {
     user: {
+      id: 9,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -73,6 +82,7 @@ export const users = [
   },
   {
     user: {
+      id: 10,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -81,6 +91,7 @@ export const users = [
   },
   {
     user: {
+      id: 11,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -89,6 +100,7 @@ export const users = [
   },
   {
     user: {
+      id: 12,
       name: "Frost Eduard",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
@@ -97,6 +109,7 @@ export const users = [
   },
   {
     user: {
+      id: 13,
       name: "Frost Eduard2",
       avatar: "https://i.stack.imgur.com/6qGDW.jpg?s=128&g=1",
     } as User,
