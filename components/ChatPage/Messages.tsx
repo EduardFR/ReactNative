@@ -11,7 +11,10 @@ import {
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { RootStackParamList } from "../../types/RootStackPrams";
 import Message from "./Message";
-import { getMessagesAction } from "../../store/reducers/MessagesReducer";
+import {
+  sendTextMessagesAction,
+  sendVideoMessageAction,
+} from "../../store/reducers/MessagesReducer";
 import COLORS from "../../constants/colors";
 import { useState } from "react";
 
@@ -25,14 +28,40 @@ export default function Messages() {
 
   const onPress = (text: string): void => {
     dispatch(
-      getMessagesAction({
+      sendTextMessagesAction({
         text,
         key: route.params.id,
         direction: "outcome",
         date: Date.now(),
+        type: "text",
       })
     );
     setText("");
+
+    //Имитация получения сообщения от пользователя.
+    setTimeout(() => {
+      if (Math.round(Math.random()) === 0) {
+        dispatch(
+          sendVideoMessageAction({
+            url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            key: route.params.id,
+            direction: "income",
+            date: Date.now(),
+            type: "video",
+          })
+        );
+      } else {
+        dispatch(
+          sendTextMessagesAction({
+            text: "Новое тестовое сообщение",
+            key: route.params.id,
+            direction: "income",
+            date: Date.now(),
+            type: "text",
+          })
+        );
+      }
+    }, 4000);
   };
   return (
     <View style={styles.container}>
@@ -41,7 +70,8 @@ export default function Messages() {
         data={messages[route.params.id]}
         renderItem={({ item }) => (
           <Message
-            message={item.text}
+            message={item.type == "text" ? item.text : item.url}
+            type={item.type}
             direction={item.direction}
             key={item.date}
           />

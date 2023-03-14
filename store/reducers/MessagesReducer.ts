@@ -1,38 +1,51 @@
-interface messageType {
-  text: string;
-  date: number;
-  direction: string;
-}
-
-interface payloadType {
+interface payloadTextType {
   key: number;
   text: string;
   date: number;
   direction: string;
+  type: "text";
+}
+
+interface payloadVideoType {
+  key: number;
+  url: string;
+  date: number;
+  direction: string;
+  type: "video";
 }
 
 interface MessagesStateType {
-  [key: number]: messageType[];
+  [key: number]: Array<TextMessage | VideoMessage>;
 }
 
 interface actionType {
   type: string;
-  payload: payloadType;
+  payload: payloadTextType;
 }
 
 const defaultState: MessagesStateType = {};
 
-const GET_MESSAGES = "GET_MESSAGES";
+const SEND_TEXT_MESSAGES = "SEND_TEXT_MESSAGES";
+const SEND_VIDEO_MESSAGES = "SEND_VIDEO_MESSAGES";
 
 export const MessagesReducer = (
   state = defaultState,
   action: actionType
 ): MessagesStateType => {
-  switch (action.type) {
-    case GET_MESSAGES:
-      let { key, ...payload } = action.payload;
+  if (!action.payload) {
+    return state;
+  }
 
-      state[key] = [...(state[action.payload.key] || []), payload];
+  let { key, ...payload } = action.payload;
+
+  switch (action.type) {
+    case SEND_TEXT_MESSAGES:
+      state[key] = [...(state[key] || []), payload];
+
+      return { ...state };
+    case SEND_VIDEO_MESSAGES:
+      state[key] = [...(state[key] || []), payload];
+
       return { ...state };
 
     default:
@@ -40,7 +53,12 @@ export const MessagesReducer = (
   }
 };
 
-export const getMessagesAction = (payload: payloadType) => ({
-  type: GET_MESSAGES,
+export const sendTextMessagesAction = (payload: payloadTextType) => ({
+  type: SEND_TEXT_MESSAGES,
+  payload,
+});
+
+export const sendVideoMessageAction = (payload: payloadVideoType) => ({
+  type: SEND_VIDEO_MESSAGES,
   payload,
 });

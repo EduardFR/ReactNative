@@ -2,42 +2,37 @@ export const messages = {
   1: [
     {
       text: "Привет",
-      date: 12,
+      date: 1678800581139,
       direction: "income",
+      type: "text",
     },
   ],
   2: [
     {
       text: "asdfa",
-      date: 10,
+      date: 16788005811340,
       direction: "outcome",
+      type: "text",
     },
     {
       text: "asdfawda",
-      date: 22,
+      date: 1678800581141,
       direction: "income",
+      type: "text",
     },
   ],
   3: [
     {
       text: "Привет, давно не виделись, ты как?",
-      date: 1232,
+      date: 1678800581139,
       direction: "income",
+      type: "text",
     },
     {
       text: "Нормально",
-      date: 11234,
+      date: 1678800590000,
       direction: "outcome",
+      type: "text",
     },
   ],
-  4: [],
-  5: [],
-  6: [],
-  7: [],
-  8: [],
-  9: [],
-  10: [],
-  11: [],
-  12: [],
-  13: [],
 } as Chats;

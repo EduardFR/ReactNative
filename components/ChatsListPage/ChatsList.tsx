@@ -12,14 +12,20 @@ type chatScreenNavigationProp = StackNavigationProp<RootStackParamList, "chat">;
 export default function ChatsList() {
   const navigation = useNavigation<chatScreenNavigationProp>();
   const messages = useTypedSelector((state) => state.messages);
-  const getLastMessage = (id: number): string => {
+  const getLastMessage = (id: number): [string, number | void] => {
     const messagesUser = messages[id];
 
-    if (!!messagesUser) {
-      return messagesUser[messagesUser.length - 1].text;
+    if (!messagesUser) {
+      return ["Сообщений нет", undefined];
     }
 
-    return "Сообщений нет";
+    const lastMessage = messagesUser[messagesUser.length - 1];
+
+    if (lastMessage.type === "video") {
+      return ["Видео", lastMessage.date];
+    }
+
+    return [lastMessage.text, lastMessage.date];
   };
 
   const onPress = (id: number) => {

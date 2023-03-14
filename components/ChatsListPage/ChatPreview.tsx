@@ -9,11 +9,16 @@ import COLORS from "../../constants/colors";
 
 interface Props {
   user: User;
-  lastMessage: string;
+  lastMessage: [string, number | void];
   onPress: any;
 }
 
 export default function ChatPreview({ user, lastMessage, onPress }: Props) {
+  const FormatDate = (date: number): string => {
+    let dateFormat = new Date(date);
+    return dateFormat.toLocaleString("en-US");
+  };
+
   return (
     <TouchableWithoutFeedback
       onPress={() => {
@@ -24,7 +29,18 @@ export default function ChatPreview({ user, lastMessage, onPress }: Props) {
         <Image style={styles.avatar} source={{ uri: user.avatar }} />
         <View style={styles.textPreview}>
           <Text style={styles.name}>{user.name}</Text>
-          <Text style={styles.lastMessage}>{lastMessage}</Text>
+          <View style={styles.lastMessageContainer}>
+            <Text numberOfLines={1} style={styles.lastMessageText}>
+              {lastMessage[0]}
+            </Text>
+            {!!lastMessage[1] ? (
+              <Text style={styles.lastMessageDate}>
+                {FormatDate(lastMessage[1])}
+              </Text>
+            ) : (
+              ""
+            )}
+          </View>
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -32,6 +48,12 @@ export default function ChatPreview({ user, lastMessage, onPress }: Props) {
 }
 
 const styles = StyleSheet.create({
+  lastMessageContainer: {
+    width: "100%",
+    flex: 1,
+    alignItems: "center",
+    flexDirection: "row",
+  },
   chatPreview: {
     marginLeft: 20,
     flexDirection: "row",
@@ -51,7 +73,13 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: COLORS.black,
   },
-  lastMessage: {
+  lastMessageText: {
     color: COLORS.gray,
+    width: 150,
+  },
+  lastMessageDate: {
+    color: COLORS.gray,
+    marginLeft: "auto",
+    marginRight: 80,
   },
 });

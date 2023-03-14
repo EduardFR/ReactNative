@@ -8,12 +8,21 @@ declare global {
   }
 
   interface Message {
-    text: string;
     date: integer;
     direction: string;
   }
 
+  interface TextMessage extends Message {
+    text: string;
+    type: "text";
+  }
+
+  interface VideoMessage extends Message {
+    url: string;
+    type: "video";
+  }
+
   interface Chats {
-    [key: number]: Message[] | never;
+    [key: number]: Array<TextMessage | VideoMessage>;
   }
 }
