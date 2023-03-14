@@ -1,6 +1,13 @@
 import { useDispatch } from "react-redux";
 import { RouteProp, useRoute } from "@react-navigation/native";
-import { StyleSheet, TextInput, View, FlatList, Pressable } from "react-native";
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  FlatList,
+  Pressable,
+  Text,
+} from "react-native";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { RootStackParamList } from "../../types/RootStackPrams";
 import Message from "./Message";
@@ -47,16 +54,26 @@ export default function Messages() {
           onChangeText={setText}
         ></TextInput>
         <Pressable
-          style={styles.button}
+          style={text ? styles.buttonActive : styles.buttonDisable}
+          disabled={text ? false : true}
           onPress={() => onPress(text)}
-        ></Pressable>
+        >
+          <Text></Text>
+        </Pressable>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
+  buttonDisable: {
+    width: 60,
+    height: "100%",
+    backgroundColor: COLORS.gray,
+    borderBottomEndRadius: 10,
+    borderTopEndRadius: 10,
+  },
+  buttonActive: {
     width: 60,
     height: "100%",
     backgroundColor: COLORS.purple,
@@ -90,7 +107,7 @@ const styles = StyleSheet.create({
   },
   list: {
     justifyContent: "space-between",
-    paddingTop: 20,
+    marginTop: 60,
     paddingBottom: 100,
     rowGap: 10,
   },

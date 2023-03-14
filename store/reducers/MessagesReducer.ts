@@ -20,54 +20,7 @@ interface actionType {
   payload: payloadType;
 }
 
-const defaultState: MessagesStateType = {
-  1: [
-    {
-      text: "Привет",
-      date: 123213123,
-      direction: "income",
-    },
-    {
-      text: "asdfawda",
-      date: 123213123,
-      direction: "outcome",
-    },
-  ],
-  2: [
-    {
-      text: "asdfa",
-      date: 123213123,
-      direction: "outcome",
-    },
-    {
-      text: "asdfawda",
-      date: 123213123,
-      direction: "outcome",
-    },
-  ],
-  3: [
-    {
-      text: "Привет, давно не виделись, ты как?",
-      date: 123213123,
-      direction: "income",
-    },
-    {
-      text: "Нормально",
-      date: 123213123,
-      direction: "outcome",
-    },
-  ],
-  4: [],
-  5: [],
-  6: [],
-  7: [],
-  8: [],
-  9: [],
-  10: [],
-  11: [],
-  12: [],
-  13: [],
-};
+const defaultState: MessagesStateType = {};
 
 const GET_MESSAGES = "GET_MESSAGES";
 
@@ -79,7 +32,7 @@ export const MessagesReducer = (
     case GET_MESSAGES:
       let { key, ...payload } = action.payload;
 
-      state[key] = [...state[action.payload.key], payload];
+      state[key] = [...(state[action.payload.key] || []), payload];
       return { ...state };
 
     default:

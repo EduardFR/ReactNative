@@ -10,5 +10,10 @@ declare global {
   interface Message {
     text: string;
     date: integer;
+    direction: string;
+  }
+
+  interface Chats {
+    [key: number]: Message[] | never;
   }
 }

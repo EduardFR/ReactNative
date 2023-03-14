@@ -9,7 +9,7 @@ import COLORS from "../../constants/colors";
 
 interface Props {
   user: User;
-  lastMessage: Message;
+  lastMessage: string;
   onPress: any;
 }
 
@@ -24,7 +24,7 @@ export default function ChatPreview({ user, lastMessage, onPress }: Props) {
         <Image style={styles.avatar} source={{ uri: user.avatar }} />
         <View style={styles.textPreview}>
           <Text style={styles.name}>{user.name}</Text>
-          <Text style={styles.lastMessage}>{lastMessage.text}</Text>
+          <Text style={styles.lastMessage}>{lastMessage}</Text>
         </View>
       </View>
     </TouchableWithoutFeedback>
