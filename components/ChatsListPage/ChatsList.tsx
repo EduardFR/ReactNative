@@ -4,7 +4,7 @@ import React from "react";
 import { FlatList, StyleSheet } from "react-native";
 import { users } from "../../constants/users";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { RootStackParamList } from "../../types/RootStackPrams";
+import { RootStackParamList } from "../../types/RootStackParams";
 import ChatPreview from "./ChatPreview";
 
 type chatScreenNavigationProp = StackNavigationProp<RootStackParamList, "chat">;

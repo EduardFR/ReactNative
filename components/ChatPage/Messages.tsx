@@ -9,7 +9,7 @@ import {
   Text,
 } from "react-native";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { RootStackParamList } from "../../types/RootStackPrams";
+import { RootStackParamList } from "../../types/RootStackParams";
 import Message from "./Message";
 import {
   sendTextMessagesAction,
@@ -31,7 +31,7 @@ export default function Messages() {
       sendTextMessagesAction({
         text,
         key: route.params.id,
-        direction: "outcome",
+        direction: "outgoing",
         date: Date.now(),
         type: "text",
       })
@@ -45,7 +45,7 @@ export default function Messages() {
           sendVideoMessageAction({
             url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
             key: route.params.id,
-            direction: "income",
+            direction: "incomming",
             date: Date.now(),
             type: "video",
           })
@@ -55,7 +55,7 @@ export default function Messages() {
           sendTextMessagesAction({
             text: "Новое тестовое сообщение",
             key: route.params.id,
-            direction: "income",
+            direction: "incomming",
             date: Date.now(),
             type: "text",
           })

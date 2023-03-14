@@ -13,7 +13,11 @@ export default function Message({ message, direction, type }: propStyle) {
   const video = useRef(null);
   return (
     <View
-      style={direction === "outcome" ? styles.sentMessage : styles.getMessage}
+      style={
+        direction === "outgoing"
+          ? styles.outgoingMessage
+          : styles.incommingMessage
+      }
     >
       {type == "text" ? (
         <Text style={styles.text}>{message}</Text>
@@ -35,7 +39,7 @@ export default function Message({ message, direction, type }: propStyle) {
 }
 
 const styles = StyleSheet.create({
-  sentMessage: {
+  outgoingMessage: {
     maxWidth: "80%",
     padding: 5,
     marginRight: 10,
@@ -46,7 +50,7 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 5,
     backgroundColor: COLORS.purple,
   },
-  getMessage: {
+  incommingMessage: {
     maxWidth: "80%",
     padding: 5,
     marginLeft: 10,
